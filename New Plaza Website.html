@@ -132,7 +132,7 @@
     letter-spacing: 0.08em; text-transform: uppercase;
     text-decoration: none; border-radius: 2px;
     transition: background 0.2s, transform 0.2s;
-    display: inline-block;
+    display: inline-block; border: none; cursor: pointer;
   }
 
   .btn-primary:hover { background: var(--black); transform: translateY(-2px); }
@@ -142,7 +142,7 @@
     padding: 15px 32px; font-weight: 500; font-size: 0.9rem;
     letter-spacing: 0.08em; text-transform: uppercase;
     text-decoration: none; border-radius: 2px;
-    transition: 0.2s; display: inline-block;
+    transition: 0.2s; display: inline-block; background: none; cursor: pointer;
   }
 
   .btn-outline:hover { background: var(--black); color: var(--cream); }
@@ -700,7 +700,6 @@
     .footer-grid { grid-template-columns: 1fr; }
   }
 
-  /* ── GRAND OPENING CARD ── */
   .grand-opening-card {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -718,185 +717,6 @@
     position: relative; overflow: hidden;
   }
 
-  .go-left::before {
-    content: 'JUNE\A18';
-    white-space: pre;
-    position: absolute; bottom: -20px; right: -10px;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 8rem; line-height: 0.85;
-    color: rgba(255,255,255,0.07);
-    letter-spacing: -0.02em;
-    pointer-events: none;
-  }
-
-  .go-countdown-label {
-    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(245,240,232,0.7); margin-bottom: 12px;
-  }
-
-  .go-countdown {
-    display: flex; align-items: flex-end; gap: 4px;
-    margin-bottom: 28px;
-  }
-
-  .go-unit {
-    text-align: center;
-  }
-
-  .go-unit span {
-    display: block;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.2rem; line-height: 1;
-    color: var(--cream);
-    background: rgba(0,0,0,0.2);
-    padding: 6px 14px; border-radius: 2px;
-    min-width: 72px;
-  }
-
-  .go-unit small {
-    font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: rgba(245,240,232,0.55); margin-top: 5px; display: block;
-  }
-
-  .go-sep {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 2.4rem; color: rgba(245,240,232,0.4);
-    padding-bottom: 18px;
-  }
-
-  .go-date-badge {
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
-    text-transform: uppercase;
-    background: var(--gold); color: var(--black);
-    padding: 6px 14px; border-radius: 2px;
-    margin-bottom: 20px;
-  }
-
-  .go-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 3.2rem; line-height: 0.95;
-    color: var(--cream); margin-bottom: 16px;
-  }
-
-  .go-title em {
-    font-family: 'Fraunces', serif;
-    font-style: italic; color: var(--gold);
-  }
-
-  .go-desc {
-    font-size: 0.9rem; line-height: 1.65;
-    color: rgba(245,240,232,0.75);
-    margin-bottom: 24px;
-    max-width: 340px;
-  }
-
-  .go-right {
-    padding: 52px 44px;
-    display: flex; flex-direction: column;
-  }
-
-  .go-highlights-title {
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--gold);
-    margin-bottom: 28px;
-  }
-
-  .go-highlights {
-    display: flex; flex-direction: column; gap: 0;
-    margin-bottom: 36px; flex: 1;
-  }
-
-  .go-highlight {
-    display: flex; gap: 18px; align-items: flex-start;
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.07);
-  }
-
-  .go-highlight:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
-
-  .go-h-icon {
-    font-size: 1.8rem; flex-shrink: 0; width: 42px;
-    text-align: center; padding-top: 2px;
-  }
-
-  .go-h-name {
-    font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700;
-    color: var(--cream); margin-bottom: 4px;
-  }
-
-  .go-h-desc {
-    font-size: 0.83rem; line-height: 1.5;
-    color: rgba(245,240,232,0.55);
-  }
-
-  .go-details-row {
-    display: flex; gap: 0;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 2px; overflow: hidden;
-  }
-
-  .go-detail {
-    flex: 1; padding: 16px 18px;
-    border-right: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .go-detail:last-child { border-right: none; }
-
-  .go-detail strong {
-    display: block; font-size: 0.88rem;
-    color: var(--cream); font-weight: 500; margin-bottom: 3px;
-  }
-
-  .go-detail span {
-    font-size: 0.65rem; letter-spacing: 0.12em;
-    text-transform: uppercase; color: rgba(245,240,232,0.4);
-  }
-
-  /* ── WAITLIST STYLES ── */
-  .waitlist-badge {
-    display: flex; align-items: center; gap: 18px;
-    background: rgba(11,188,212,0.12);
-    border: 1.5px solid rgba(11,188,212,0.4);
-    border-radius: 2px; padding: 20px 24px;
-    margin-bottom: 32px; margin-top: 8px;
-  }
-
-  .wb-icon { font-size: 2rem; flex-shrink: 0; }
-
-  .wb-headline {
-    font-family: 'Fraunces', serif; font-weight: 700;
-    font-size: 1.1rem; color: var(--cyan); margin-bottom: 4px;
-  }
-
-  .wb-sub { font-size: 0.85rem; color: rgba(245,240,232,0.6); line-height: 1.5; }
-
-  .waitlist-perks {
-    display: flex; flex-direction: column; gap: 10px;
-    margin-top: 8px;
-  }
-
-  .wp-item {
-    font-size: 0.85rem; color: rgba(245,240,232,0.7);
-    display: flex; align-items: center; gap: 8px;
-  }
-
-  .waitlist-form-badge {
-    background: var(--cyan); color: var(--black);
-    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em;
-    text-transform: uppercase; padding: 6px 14px;
-    border-radius: 2px; display: inline-block;
-    margin-bottom: 16px;
-  }
-
-  @media (max-width: 900px) {
-    .grand-opening-card { grid-template-columns: 1fr; }
-    .go-left { padding: 40px 28px; }
-    .go-right { padding: 40px 28px; }
-    .go-details-row { flex-wrap: wrap; }
-    .go-detail { min-width: 50%; }
-  }
-
-  /* Success message */
   .success-msg {
     display: none;
     background: #1a4d2e; color: #a8f0c4;
@@ -904,6 +724,8 @@
     font-size: 0.85rem; margin-top: 12px;
     text-align: center;
   }
+
+  .success-msg.show { display: block; }
 </style>
 </head>
 <body>
@@ -1005,355 +827,138 @@
   </div>
 </div>
 
-<!-- VENDORS -->
-<section id="vendors">
-  <div class="section-header">
-    <p class="section-tag">Vendor Directory</p>
-    <h2 class="section-title">Find Your<br><em>Favorites</em></h2>
-  </div>
-  <div class="vendor-filters">
-    <button class="filter-btn active" onclick="filterVendors('all', this)">All</button>
-    <button class="filter-btn" onclick="filterVendors('food', this)">Food & Drink</button>
-    <button class="filter-btn" onclick="filterVendors('fashion', this)">Fashion</button>
-    <button class="filter-btn" onclick="filterVendors('beauty', this)">Beauty</button>
-    <button class="filter-btn" onclick="filterVendors('jewelry', this)">Jewelry</button>
-    <button class="filter-btn" onclick="filterVendors('electronics', this)">Electronics</button>
-    <button class="filter-btn" onclick="filterVendors('art', this)">Art & Gifts</button>
-    <button class="filter-btn" onclick="filterVendors('services', this)">Services</button>
-  </div>
-  <div class="vendors-grid" id="vendorsGrid">
-    <div class="vendor-card" data-cat="food">
-      <span class="vendor-emoji">🌮</span>
-      <p class="vendor-name">Tacos La Familia</p>
-      <p class="vendor-cat">Food & Drink</p>
-      <p class="vendor-desc">Handmade tortillas, birria, pastor, and all the classics. A taste of home in every bite.</p>
-    </div>
-    <div class="vendor-card" data-cat="fashion">
-      <span class="vendor-emoji">👟</span>
-      <p class="vendor-name">Cultura Kicks</p>
-      <p class="vendor-cat">Fashion</p>
-      <p class="vendor-desc">Streetwear and sneakers curated for the culture. Limited drops, exclusive collabs.</p>
-    </div>
-    <div class="vendor-card" data-cat="beauty">
-      <span class="vendor-emoji">💅</span>
-      <p class="vendor-name">Glam by Nadia</p>
-      <p class="vendor-cat">Beauty</p>
-      <p class="vendor-desc">Lashes, nails, and full glam. Walk in fierce, walk out more fierce.</p>
-    </div>
-    <div class="vendor-card" data-cat="food">
-      <span class="vendor-emoji">🥤</span>
-      <p class="vendor-name">Aguas Frescas Bar</p>
-      <p class="vendor-cat">Food & Drink</p>
-      <p class="vendor-desc">Seasonal aguas frescas, elotes, chamoyadas, and paletas made fresh daily.</p>
-    </div>
-    <div class="vendor-card" data-cat="art">
-      <span class="vendor-emoji">🎨</span>
-      <p class="vendor-name">Arte y Alma</p>
-      <p class="vendor-cat">Art & Gifts</p>
-      <p class="vendor-desc">Original prints, candles, and handcrafted goods from local Latino artists.</p>
-    </div>
-    <div class="vendor-card" data-cat="services">
-      <span class="vendor-emoji">✂️</span>
-      <p class="vendor-name">Kings Barbershop</p>
-      <p class="vendor-cat">Services</p>
-      <p class="vendor-desc">Precision fades, lineups, and styles. Walk-ins welcome, appointments preferred.</p>
-    </div>
-    <div class="vendor-card" data-cat="fashion">
-      <span class="vendor-emoji">👗</span>
-      <p class="vendor-name">La Boutique</p>
-      <p class="vendor-cat">Fashion</p>
-      <p class="vendor-desc">Trendy fits for women. From casual everyday to quince-ready looks.</p>
-    </div>
-    <div class="vendor-card" data-cat="art">
-      <span class="vendor-emoji">📸</span>
-      <p class="vendor-name">Foto Estudio Reyes</p>
-      <p class="vendor-cat">Art & Gifts</p>
-      <p class="vendor-desc">Professional photos, custom prints, and ID services. Family packages available.</p>
-    </div>
-    <div class="vendor-card" data-cat="jewelry">
-      <span class="vendor-emoji">💎</span>
-      <p class="vendor-name">Joyería Dorada</p>
-      <p class="vendor-cat">Jewelry</p>
-      <p class="vendor-desc">Handcrafted gold and silver pieces, custom engravings, and quinceañera sets. Elegance for every occasion.</p>
-    </div>
-    <div class="vendor-card" data-cat="electronics">
-      <span class="vendor-emoji">📱</span>
-      <p class="vendor-name">TechBarrio</p>
-      <p class="vendor-cat">Electronics & Accessories</p>
-      <p class="vendor-desc">Phone repairs, accessories, cables, cases, and the latest gadgets. Fast service, fair prices, familia-owned.</p>
-    </div>
-  </div>
-</section>
-</section>
-
-<!-- EVENTS -->
-<section id="events">
-  <div style="max-width:1200px;margin:0 auto;">
-    <div class="section-header">
-      <p class="section-tag" style="color:rgba(245,240,232,0.6);">What's On</p>
-      <h2 class="section-title">Upcoming <em>Events</em></h2>
-    </div>
-
-    <!-- GRAND OPENING HERO CARD -->
-    <div class="grand-opening-card">
-      <div class="go-left">
-        <div class="go-countdown-label">Grand Opening In</div>
-        <div class="go-countdown" id="goCountdown">
-          <div class="go-unit"><span id="cdDays">--</span><small>Days</small></div>
-          <div class="go-sep">:</div>
-          <div class="go-unit"><span id="cdHours">--</span><small>Hours</small></div>
-          <div class="go-sep">:</div>
-          <div class="go-unit"><span id="cdMins">--</span><small>Mins</small></div>
-        </div>
-        <div class="go-date-badge">June 18, 2025</div>
-        <h3 class="go-title">Grand Opening<br><em>Celebration</em></h3>
-        <p class="go-desc">The wait is over. Plaza Latina opens its doors for the first time — and we're celebrating in true familia style. Join us for a full day of food, music, community, and unforgettable moments.</p>
-        <a href="#newsletter" class="btn-primary" style="margin-top:8px;">RSVP — It's Free</a>
-      </div>
-      <div class="go-right">
-        <div class="go-highlights-title">Featured at the Grand Opening</div>
-        <div class="go-highlights">
-          <div class="go-highlight">
-            <div class="go-h-icon">🎺</div>
-            <div>
-              <p class="go-h-name">Live Mariachi</p>
-              <p class="go-h-desc">Traditional mariachi performing live all evening — the sound of celebration, front and center.</p>
-            </div>
-          </div>
-          <div class="go-highlight">
-            <div class="go-h-icon">🎧</div>
-            <div>
-              <p class="go-h-name">DJ Set</p>
-              <p class="go-h-desc">Reggaeton, cumbia, and throwbacks keeping the energy alive from open to close.</p>
-            </div>
-          </div>
-          <div class="go-highlight">
-            <div class="go-h-icon">🎟️</div>
-            <div>
-              <p class="go-h-name">Prizes & Raffles</p>
-              <p class="go-h-desc">Big giveaways, vendor gift cards, and surprise prizes throughout the day. Must be present to win.</p>
-            </div>
-          </div>
-          <div class="go-highlight">
-            <div class="go-h-icon">🍽️</div>
-            <div>
-              <p class="go-h-name">Food & Drinks</p>
-              <p class="go-h-desc">All 150+ vendors open and ready. Samples, specials, and grand opening deals all day long.</p>
-            </div>
-          </div>
-        </div>
-        <div class="go-details-row">
-          <div class="go-detail"><strong>June 18, 2025</strong><span>Date</span></div>
-          <div class="go-detail"><strong>10 AM – 10 PM</strong><span>Hours</span></div>
-          <div class="go-detail"><strong>Free Entry</strong><span>Admission</span></div>
-          <div class="go-detail"><strong>All Ages</strong><span>Who's Invited</span></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- WAITLIST -->
-<section id="leasing">
-  <div>
-    <div class="section-header" style="margin-bottom:28px;">
-      <p class="section-tag">For Businesses</p>
-      <h2 class="section-title">Join the<br><em>Waitlist</em></h2>
-    </div>
-    <p class="leasing-body">Plaza Latina is one of Dallas's most sought-after retail communities. With 150+ family-owned businesses and a fiercely loyal customer base, space here doesn't come easy — and that's by design.</p>
-    <div class="waitlist-badge">
-      <div class="wb-icon">⏳</div>
-      <div>
-        <div class="wb-headline">Current Wait: 2–3 Years</div>
-        <div class="wb-sub">Spaces rarely open. When they do, waitlist members get first access — no exceptions.</div>
-      </div>
-    </div>
-    <div class="leasing-stats">
-      <div class="stat-box">
-        <div class="stat-num">150+</div>
-        <div class="stat-label">Family-Owned Vendors</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">5</div>
-        <div class="stat-label">Days a Week</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">2–3yr</div>
-        <div class="stat-label">Avg. Wait Time</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Community First</div>
-      </div>
-    </div>
-    <div class="waitlist-perks">
-      <div class="wp-item">✓ First access when spaces open</div>
-      <div class="wp-item">✓ Priority review for your application</div>
-      <div class="wp-item">✓ Updates on Plaza expansion plans</div>
-    </div>
-  </div>
-  <div class="leasing-form-side">
-    <div class="leasing-form">
-      <div class="waitlist-form-badge">🔒 Waitlist — Limited Spots</div>
-      <h3 class="form-title">Get on the List</h3>
-      <p class="form-sub">Space at Plaza Latina is rare. Submit your interest now and we'll contact you when a spot becomes available.</p>
-      <div class="form-row">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" placeholder="Maria">
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" placeholder="Garcia">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Business Name</label>
-        <input type="text" placeholder="Your Business">
-      </div>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" placeholder="you@example.com">
-      </div>
-      <div class="form-group">
-        <label>Phone</label>
-        <input type="tel" placeholder="(214) 000-0000">
-      </div>
-      <div class="form-group">
-        <label>Business Type</label>
-        <select>
-          <option>Select category…</option>
-          <option>Food & Drink</option>
-          <option>Fashion & Apparel</option>
-          <option>Beauty & Wellness</option>
-          <option>Art & Gifts</option>
-          <option>Services</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>Tell us about your business</label>
-        <textarea placeholder="Brief description, products/services, years in business…"></textarea>
-      </div>
-      <button class="btn-form" onclick="submitLease(event)">Join the Waitlist</button>
-      <p style="font-size:0.72rem;color:var(--mid-gray);margin-top:10px;text-align:center;">Adding your name does not guarantee placement. We'll be in touch.</p>
-      <div class="success-msg" id="leaseSuccess">✓ You're on the list! We'll reach out when a space opens up.</div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section id="newsletter">
-  <div class="newsletter-inner">
-    <p class="section-tag" style="justify-content:center;margin-bottom:16px;">Stay Connected</p>
-    <h2 class="newsletter-title">Never Miss<br>a Moment</h2>
-    <p class="newsletter-sub">Events, vendor spotlights, deals, and community news — delivered straight to your inbox. En español también.</p>
-    <div class="newsletter-form">
-      <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="your@email.com">
-      <button class="newsletter-btn" onclick="submitNewsletter()">Subscribe</button>
-    </div>
-    <div class="success-msg" id="newsSuccess" style="display:none;max-width:480px;margin:12px auto 0;">✓ You're on the list! Welcome to Plaza Latina.</div>
-  </div>
-</section>
-
 <!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
       <div class="footer-logo">Plaza <span>Latina</span></div>
-      <p class="footer-tagline">Where Culture Lives</p>
+      <p class="footer-tagline">Where culture lives.</p>
       <div class="footer-social">
-        <a class="social-btn" href="#" title="Instagram">📷</a>
-        <a class="social-btn" href="#" title="TikTok">🎵</a>
-        <a class="social-btn" href="#" title="Facebook">👥</a>
-        <a class="social-btn" href="#" title="WhatsApp">💬</a>
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">📷</a>
       </div>
     </div>
     <div>
-      <p class="footer-col-title">Visit</p>
+      <p class="footer-col-title">Quick Links</p>
       <ul class="footer-links">
-        <li><a href="#vendors">Vendor Directory</a></li>
-        <li><a href="#events">Events Calendar</a></li>
-        <li><a href="#">Hours & Location</a></li>
-        <li><a href="#">Parking Info</a></li>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#vendors">Directory</a></li>
+        <li><a href="#events">Events</a></li>
       </ul>
     </div>
     <div>
-      <p class="footer-col-title">Business</p>
+      <p class="footer-col-title">For Vendors</p>
       <ul class="footer-links">
-        <li><a href="#leasing">Join the Waitlist</a></li>
-        <li><a href="#leasing">Vendor Application</a></li>
-        <li><a href="#">Advertise With Us</a></li>
-        <li><a href="#">Partner Programs</a></li>
+        <li><a href="#leasing">Leasing</a></li>
+        <li><a href="#">Vendor Info</a></li>
       </ul>
     </div>
     <div>
-      <p class="footer-col-title">Connect</p>
+      <p class="footer-col-title">Contact</p>
       <ul class="footer-links">
-        <li><a href="#newsletter">Newsletter</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Press & Media</a></li>
-        <li><a href="#">Careers</a></li>
+        <li><a href="tel:+12140000000">(214) 000-0000</a></li>
+        <li><a href="mailto:info@plazalatina.com">info@plazalatina.com</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2025 Plaza Latina. Dallas, TX. All rights reserved.</p>
-    <p class="footer-copy">Privacy Policy · Terms of Use</p>
+    <p class="footer-copy">&copy; 2026 Plaza Latina. All rights reserved.</p>
   </div>
 </footer>
 
+<!-- JAVASCRIPT -->
 <script>
+  // Toggle mobile navigation
   function toggleNav() {
-    document.getElementById('mobileNav').classList.toggle('open');
+    const mobileNav = document.getElementById('mobileNav');
+    mobileNav.classList.toggle('open');
   }
 
-  function filterVendors(cat, btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  // Filter vendors by category
+  function filterVendors(category, btn) {
+    const cards = document.querySelectorAll('.vendor-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+    
+    // Update active button
+    buttons.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('.vendor-card').forEach(card => {
-      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    
+    // Filter cards
+    cards.forEach(card => {
+      if (category === 'all') {
+        card.style.display = 'block';
+      } else {
+        card.style.display = card.getAttribute('data-cat') === category ? 'block' : 'none';
+      }
     });
   }
 
-  // Countdown to June 18, 2025
+  // Countdown timer for Grand Opening
   function updateCountdown() {
-    const target = new Date('2025-06-18T10:00:00');
-    const now = new Date();
-    const diff = target - now;
-    if (diff <= 0) {
-      document.getElementById('cdDays').textContent = '00';
-      document.getElementById('cdHours').textContent = '00';
-      document.getElementById('cdMins').textContent = '00';
-      return;
-    }
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    document.getElementById('cdDays').textContent = String(days).padStart(2, '0');
-    document.getElementById('cdHours').textContent = String(hours).padStart(2, '0');
-    document.getElementById('cdMins').textContent = String(mins).padStart(2, '0');
-  }
-  updateCountdown();
-  setInterval(updateCountdown, 60000);
+    const grandOpeningDate = new Date('2026-06-18T00:00:00').getTime();
+    const now = new Date().getTime();
+    const distance = grandOpeningDate - now;
 
-  function submitLease(e) {
+    if (distance > 0) {
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+      const daysEl = document.getElementById('cdDays');
+      const hoursEl = document.getElementById('cdHours');
+      const minsEl = document.getElementById('cdMins');
+
+      if (daysEl) daysEl.textContent = String(days).padStart(2, '0');
+      if (hoursEl) hoursEl.textContent = String(hours).padStart(2, '0');
+      if (minsEl) minsEl.textContent = String(minutes).padStart(2, '0');
+    }
+  }
+
+  // Update countdown every minute
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      updateCountdown();
+      setInterval(updateCountdown, 60000);
+    });
+  } else {
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+  }
+
+  // Form submission handler
+  function handleFormSubmit(e) {
     e.preventDefault();
-    const msg = document.getElementById('leaseSuccess');
-    msg.style.display = 'block';
-    setTimeout(() => msg.style.display = 'none', 5000);
+    const form = e.target;
+    const successMsg = form.querySelector('.success-msg');
+    
+    // Show success message
+    if (successMsg) {
+      successMsg.classList.add('show');
+      setTimeout(() => successMsg.classList.remove('show'), 3000);
+    }
+    
+    // Reset form
+    form.reset();
   }
 
-  function submitNewsletter() {
-    const email = document.getElementById('newsletterEmail').value;
-    if (!email || !email.includes('@')) {
-      alert('Please enter a valid email.');
-      return;
+  // Attach form handlers
+  document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+      form.addEventListener('submit', handleFormSubmit);
+    });
+  });
+
+  // Close mobile nav when clicking outside
+  document.addEventListener('click', (e) => {
+    const mobileNav = document.getElementById('mobileNav');
+    const hamburger = document.querySelector('.hamburger');
+    if (mobileNav.classList.contains('open') && !mobileNav.contains(e.target) && !hamburger.contains(e.target)) {
+      mobileNav.classList.remove('open');
     }
-    document.getElementById('newsSuccess').style.display = 'block';
-    document.getElementById('newsletterEmail').value = '';
-  }
+  });
 </script>
+
 </body>
 </html>
