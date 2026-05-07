@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plaza Latina — Where Culture Lives</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FEF5E7;
+    --black: #2A1200;
+    --red: #D95E0A;
+    --gold: #F7C94A;
+    --warm-white: #FFFAF3;
+    --mid-gray: #A0622A;
+    --border: rgba(210,90,20,0.18);
+    --cyan: #17C8E0;
+    --brown-deep: #C95B10;
+    --brown-mid: #E0752A;
+    --brown-light: #F0A868;
+    --stucco: #F2855A;
+    --stucco-light: #FAC9A8;
+    --stucco-pale: #FEF0E4;
+    --orange-bright: #E87820;
+    --orange-deep: #BF4E08;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 40px;
+    background: rgba(254,245,231,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.06em;
+    color: var(--black);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--red); }
+
+  .nav-links {
+    display: flex; gap: 32px; list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--black);
+    text-decoration: none; transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--red); }
+
+  .nav-cta {
+    background: var(--orange-bright); color: var(--cream) !important;
+    padding: 10px 22px; border-radius: 2px;
+  }
+
+  .nav-cta:hover { background: var(--orange-deep); color: var(--cream) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--black); transition: 0.3s; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center;
+    padding: 72px 40px 52px;
+    position: relative;
+    background: var(--cream);
+  }
+
+  .hero-tag {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 9vw, 10rem);
+    line-height: 0.88;
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+  }
+
+  .hero-title em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--red);
+  }
+
+  .hero-body {
+    font-size: 1.08rem; line-height: 1.65;
+    color: var(--mid-gray);
+    max-width: 600px;
+    margin-bottom: 40px;
+  }
+
+  .hero-actions {
+    display: flex; gap: 16px; flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-primary {
+    background: var(--red); color: var(--cream);
+    padding: 15px 32px; font-weight: 500; font-size: 0.9rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--black); transform: translateY(-2px); }
+
+  .btn-outline {
+    border: 1.5px solid var(--black); color: var(--black);
+    padding: 15px 32px; font-weight: 500; font-size: 0.9rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; border-radius: 2px;
+    transition: 0.2s; display: inline-block;
+  }
+
+  .btn-outline:hover { background: var(--black); color: var(--cream); }
+
+  .hero-right {
+    position: relative;
+    background: var(--stucco);
+    overflow: hidden;
+    flex: 1;
+    min-height: 480px;
+  }
+
+  .hero-right::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 60%, rgba(255,160,60,0.55) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(23,200,224,0.3) 0%, transparent 50%);
+    z-index: 1;
+  }
+
+  .hero-pattern {
+    position: absolute; inset: 0;
+    opacity: 0.06;
+    background-image: repeating-linear-gradient(
+      45deg,
+      #fff 0px, #fff 1px,
+      transparent 1px, transparent 40px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      #fff 0px, #fff 1px,
+      transparent 1px, transparent 40px
+    );
+    z-index: 0;
+  }
+
+  .hero-visual-text {
+    position: absolute;
+    bottom: 40px; left: 0; right: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(6rem, 14vw, 16rem);
+    color: rgba(255,255,255,0.12);
+    letter-spacing: -0.02em;
+    text-align: center;
+    z-index: 0;
+    line-height: 1;
+    user-select: none;
+  }
+
+  .hero-card-stack {
+    position: relative; z-index: 2;
+    height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    padding: 60px 40px;
+  }
+
+  .hero-card {
+    width: 280px;
+    background: var(--cream);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 32px 64px rgba(0,0,0,0.4);
+    transform: rotate(-3deg);
+    position: absolute;
+  }
+
+  .hero-card:nth-child(2) { transform: rotate(2deg) translateX(30px) translateY(-20px); }
+  .hero-card:nth-child(3) { transform: rotate(-1deg) translateX(-20px) translateY(30px); z-index: 3; }  .hero-card-img {
+    height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem;
+  }
+
+  .card-bg-1 { background: linear-gradient(135deg, #E87820, #BF4E08); }
+  .card-bg-2 { background: linear-gradient(135deg, #17C8E0, #0B8FA0); }
+  .card-bg-3 { background: linear-gradient(135deg, #F2855A, #C95B10); }
+
+  .hero-card-body { padding: 18px; }
+  .hero-card-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .hero-card-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; }
+
+  /* ── INFO BAR ── */
+  .info-bar {
+    background: var(--cyan);
+    color: #fff;
+    display: flex; align-items: stretch;
+    overflow: hidden;
+  }
+
+  .info-item {
+    flex: 1; padding: 28px 32px;
+    border-right: 1px solid rgba(0,0,0,0.15);
+    display: flex; align-items: center; gap: 16px;
+  }
+
+  .info-item:last-child { border-right: none; }
+
+  .info-icon { font-size: 1.5rem; flex-shrink: 0; }
+
+  .info-label {
+    font-size: 0.68rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--black);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .info-value { font-size: 0.92rem; font-weight: 500; color: #fff; }
+
+  /* ── SECTION WRAPPER ── */
+  section { padding: 100px 40px; }
+
+  .section-header { margin-bottom: 60px; }
+
+  .section-tag {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--cyan);
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .section-tag::before {
+    content: ''; display: block;
+    width: 28px; height: 1.5px; background: var(--cyan);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    line-height: 0.95;
+    letter-spacing: 0.02em;
+  }
+
+  .section-title em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--orange-bright);
+  }
+
+  /* ── VENDORS ── */
+  #vendors { background: var(--stucco-pale); }
+
+  .vendor-filters {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .filter-btn {
+    padding: 8px 20px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 1.5px solid var(--border);
+    background: transparent; cursor: pointer;
+    border-radius: 2px; transition: 0.2s;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--black);
+  }
+
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--orange-bright); color: #fff; border-color: var(--orange-bright);
+  }
+
+  .vendors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2px;
+  }
+
+  .vendor-card {
+    background: var(--cream);
+    padding: 36px 28px;
+    border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .vendor-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--cyan);
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .vendor-card:hover { background: var(--orange-deep); color: var(--cream); }
+  .vendor-card:hover::after { transform: scaleX(1); }
+  .vendor-card:hover .vendor-cat { color: var(--gold); }
+  .vendor-card:hover .vendor-desc { color: rgba(254,245,231,0.75); }
+
+  .vendor-emoji { font-size: 2.4rem; margin-bottom: 16px; display: block; }
+  .vendor-name { font-family: 'Fraunces', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 6px; }
+  .vendor-cat { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
+  .vendor-desc { font-size: 0.87rem; line-height: 1.5; color: var(--mid-gray); }
+
+  #events { background: linear-gradient(175deg, #0BBCD4 0%, #E87820 28%, #BF4E08 100%); color: #fff; }
+  #events .section-title { color: #fff; }
+
+  .events-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .events-list { display: flex; flex-direction: column; gap: 2px; }
+
+  .event-item {
+    padding: 28px 24px;
+    border: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer; transition: 0.25s;
+    display: flex; gap: 20px; align-items: flex-start;
+  }
+
+  .event-item:hover, .event-item.active {
+    background: var(--red); border-color: var(--red);
+  }
+
+  .event-date {
+    text-align: center; flex-shrink: 0;
+    min-width: 50px;
+  }
+
+  .event-day {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem; line-height: 1; color: var(--gold);
+  }
+
+  .event-item:hover .event-day, .event-item.active .event-day { color: var(--cream); }
+
+  .event-month {
+    font-size: 0.68rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--mid-gray);
+  }
+
+  .event-item:hover .event-month, .event-item.active .event-month { color: rgba(245,240,232,0.7); }
+
+  .event-info { flex: 1; }
+  .event-title { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 6px; }
+  .event-meta { font-size: 0.78rem; color: rgba(245,240,232,0.5); }
+
+  .event-featured {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; overflow: hidden;
+    position: sticky; top: 100px;
+  }
+
+  .event-feat-banner {
+    height: 220px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6rem;
+    background: linear-gradient(135deg, var(--red), #8B1010);
+    position: relative; overflow: hidden;
+  }
+
+  .event-feat-banner::after {
+    content: 'PRÓXIMO';
+    position: absolute; bottom: -10px; right: -5px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem; color: rgba(255,255,255,0.07);
+    letter-spacing: 0.05em;
+  }
+
+  .event-feat-body { padding: 36px; }
+  .feat-tag { font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .feat-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; line-height: 0.95; margin-bottom: 16px; }
+  .feat-desc { font-size: 0.9rem; line-height: 1.6; color: rgba(245,240,232,0.65); margin-bottom: 28px; }
+  .feat-details { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 32px; }
+  .feat-detail { font-size: 0.8rem; color: rgba(245,240,232,0.5); }
+  .feat-detail strong { color: var(--cream); display: block; font-size: 0.92rem; margin-bottom: 2px; }
+
+  /* ── LEASING ── */
+  #leasing {
+    background: #0E6B7C;
+    color: var(--cream);
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+    padding: 100px 40px;
+  }
+
+  #leasing .section-tag::before { background: var(--gold); }
+  #leasing .section-tag { color: var(--gold); }
+  #leasing .section-title { color: #fff; }
+  #leasing .section-title em { color: var(--gold); }
+
+  .leasing-body {
+    font-size: 1.05rem; line-height: 1.65;
+    color: rgba(245,240,232,0.8);
+    margin-top: 24px; margin-bottom: 40px;
+  }
+
+  .leasing-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 24px; margin-bottom: 40px;
+  }
+
+  .stat-box {
+    border: 1.5px solid rgba(245,240,232,0.25);
+    padding: 24px 20px;
+    border-radius: 2px;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem; line-height: 1;
+    color: var(--cream); margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem; letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.65);
+  }
+
+  .leasing-form-side {}
+
+  .leasing-form {
+    background: var(--cream);
+    color: var(--black);
+    padding: 48px 40px;
+    border-radius: 4px;
+  }
+
+  .form-title {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem; font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .form-sub { font-size: 0.88rem; color: var(--mid-gray); margin-bottom: 32px; }
+
+  .form-group { margin-bottom: 16px; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--mid-gray);
+    margin-bottom: 6px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    background: var(--warm-white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem; color: var(--black);
+    border-radius: 2px; outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--red); }
+
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .btn-form {
+    width: 100%; padding: 14px;
+    background: var(--red); color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; border: none; cursor: pointer;
+    border-radius: 2px; transition: background 0.2s; margin-top: 8px;
+  }
+
+  .btn-form:hover { background: var(--black); }
+
+  /* ── NEWSLETTER ── */
+  #newsletter {
+    background: var(--gold);
+    text-align: center;
+    padding: 100px 40px;
+  }
+
+  .newsletter-inner {
+    max-width: 600px; margin: 0 auto;
+  }
+
+  .newsletter-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 0.95; margin-bottom: 16px;
+  }
+
+  .newsletter-sub {
+    font-size: 1rem; color: var(--black);
+    line-height: 1.6; margin-bottom: 36px;
+    opacity: 0.75;
+  }
+
+  .newsletter-form {
+    display: flex; gap: 0;
+    max-width: 480px; margin: 0 auto;
+  }
+
+  .newsletter-input {
+    flex: 1; padding: 15px 20px;
+    border: 2px solid var(--black); border-right: none;
+    background: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+    color: var(--black); outline: none; border-radius: 2px 0 0 2px;
+  }
+
+  .newsletter-btn {
+    padding: 15px 28px;
+    background: var(--black); color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; border: none; cursor: pointer;
+    border-radius: 0 2px 2px 0; transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .newsletter-btn:hover { background: var(--orange-bright); color: #fff; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0A4A55; color: var(--cream);
+    padding: 80px 40px 40px;
+  }
+
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px; margin-bottom: 60px;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem; letter-spacing: 0.04em;
+    margin-bottom: 16px;
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-size: 1rem;
+    color: rgba(245,240,232,0.5); margin-bottom: 28px;
+  }
+
+  .footer-social {
+    display: flex; gap: 12px;
+  }
+
+  .social-btn {
+    width: 38px; height: 38px;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; text-decoration: none; border-radius: 2px;
+    transition: 0.2s;
+  }
+
+  .social-btn:hover { background: var(--cyan); border-color: var(--cyan); }
+
+  .footer-col-title {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+
+  .footer-links a {
+    color: rgba(245,240,232,0.6); text-decoration: none;
+    font-size: 0.88rem; transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--cream); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 28px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+
+  .footer-copy { font-size: 0.78rem; color: rgba(245,240,232,0.35); }
+
+  /* ── MOBILE NAV OVERLAY ── */
+  .mobile-nav {
+    display: none;
+    position: fixed; inset: 0; z-index: 99;
+    background: #0A4A55; color: var(--cream);
+    flex-direction: column; align-items: center; justify-content: center;
+    gap: 32px;
+  }
+
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--cream); text-decoration: none; letter-spacing: 0.06em; }
+  .mobile-nav a:hover { color: var(--gold); }
+
+  .close-nav {
+    position: absolute; top: 24px; right: 32px;
+    font-size: 2.5rem; cursor: pointer; color: var(--cream);
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tag, .hero-title, .hero-body, .hero-actions {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .hero-tag { animation-delay: 0.1s; }
+  .hero-title { animation-delay: 0.2s; }
+  .hero-body { animation-delay: 0.35s; }
+  .hero-actions { animation-delay: 0.5s; }
+
+  @keyframes floatCards {
+    0%, 100% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(-3deg) translateY(-12px); }
+  }
+
+  .hero-card:nth-child(3) { animation: floatCards 5s ease-in-out infinite; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    #hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 60px 24px 40px; }
+    .hero-right { height: 340px; }
+
+    .info-bar { flex-direction: column; }
+    .info-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+    section { padding: 70px 24px; }
+
+    .events-layout { grid-template-columns: 1fr; }
+    .event-featured { position: static; }
+
+    #leasing { grid-template-columns: 1fr; padding: 70px 24px; }
+
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .newsletter-form { flex-direction: column; }
+    .newsletter-input { border-right: 1.5px solid var(--black); border-radius: 2px; margin-bottom: 8px; }
+    .newsletter-btn { border-radius: 2px; }
+    .footer-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── GRAND OPENING CARD ── */
+  .grand-opening-card {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .go-left {
+    background: linear-gradient(160deg, #BF4E08 0%, #7A2800 100%);
+    padding: 52px 44px;
+    display: flex; flex-direction: column; align-items: flex-start;
+    position: relative; overflow: hidden;
+  }
+
+  .go-left::before {
+    content: 'JUNE\A18';
+    white-space: pre;
+    position: absolute; bottom: -20px; right: -10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 8rem; line-height: 0.85;
+    color: rgba(255,255,255,0.07);
+    letter-spacing: -0.02em;
+    pointer-events: none;
+  }
+
+  .go-countdown-label {
+    font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(245,240,232,0.7); margin-bottom: 12px;
+  }
+
+  .go-countdown {
+    display: flex; align-items: flex-end; gap: 4px;
+    margin-bottom: 28px;
+  }
+
+  .go-unit {
+    text-align: center;
+  }
+
+  .go-unit span {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2rem; line-height: 1;
+    color: var(--cream);
+    background: rgba(0,0,0,0.2);
+    padding: 6px 14px; border-radius: 2px;
+    min-width: 72px;
+  }
+
+  .go-unit small {
+    font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(245,240,232,0.55); margin-top: 5px; display: block;
+  }
+
+  .go-sep {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem; color: rgba(245,240,232,0.4);
+    padding-bottom: 18px;
+  }
+
+  .go-date-badge {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--gold); color: var(--black);
+    padding: 6px 14px; border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  .go-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.2rem; line-height: 0.95;
+    color: var(--cream); margin-bottom: 16px;
+  }
+
+  .go-title em {
+    font-family: 'Fraunces', serif;
+    font-style: italic; color: var(--gold);
+  }
+
+  .go-desc {
+    font-size: 0.9rem; line-height: 1.65;
+    color: rgba(245,240,232,0.75);
+    margin-bottom: 24px;
+    max-width: 340px;
+  }
+
+  .go-right {
+    padding: 52px 44px;
+    display: flex; flex-direction: column;
+  }
+
+  .go-highlights-title {
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  .go-highlights {
+    display: flex; flex-direction: column; gap: 0;
+    margin-bottom: 36px; flex: 1;
+  }
+
+  .go-highlight {
+    display: flex; gap: 18px; align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .go-highlight:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+
+  .go-h-icon {
+    font-size: 1.8rem; flex-shrink: 0; width: 42px;
+    text-align: center; padding-top: 2px;
+  }
+
+  .go-h-name {
+    font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700;
+    color: var(--cream); margin-bottom: 4px;
+  }
+
+  .go-h-desc {
+    font-size: 0.83rem; line-height: 1.5;
+    color: rgba(245,240,232,0.55);
+  }
+
+  .go-details-row {
+    display: flex; gap: 0;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 2px; overflow: hidden;
+  }
+
+  .go-detail {
+    flex: 1; padding: 16px 18px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .go-detail:last-child { border-right: none; }
+
+  .go-detail strong {
+    display: block; font-size: 0.88rem;
+    color: var(--cream); font-weight: 500; margin-bottom: 3px;
+  }
+
+  .go-detail span {
+    font-size: 0.65rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(245,240,232,0.4);
+  }
+
+  /* ── WAITLIST STYLES ── */
+  .waitlist-badge {
+    display: flex; align-items: center; gap: 18px;
+    background: rgba(11,188,212,0.12);
+    border: 1.5px solid rgba(11,188,212,0.4);
+    border-radius: 2px; padding: 20px 24px;
+    margin-bottom: 32px; margin-top: 8px;
+  }
+
+  .wb-icon { font-size: 2rem; flex-shrink: 0; }
+
+  .wb-headline {
+    font-family: 'Fraunces', serif; font-weight: 700;
+    font-size: 1.1rem; color: var(--cyan); margin-bottom: 4px;
+  }
+
+  .wb-sub { font-size: 0.85rem; color: rgba(245,240,232,0.6); line-height: 1.5; }
+
+  .waitlist-perks {
+    display: flex; flex-direction: column; gap: 10px;
+    margin-top: 8px;
+  }
+
+  .wp-item {
+    font-size: 0.85rem; color: rgba(245,240,232,0.7);
+    display: flex; align-items: center; gap: 8px;
+  }
+
+  .waitlist-form-badge {
+    background: var(--cyan); color: var(--black);
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em;
+    text-transform: uppercase; padding: 6px 14px;
+    border-radius: 2px; display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .grand-opening-card { grid-template-columns: 1fr; }
+    .go-left { padding: 40px 28px; }
+    .go-right { padding: 40px 28px; }
+    .go-details-row { flex-wrap: wrap; }
+    .go-detail { min-width: 50%; }
+    .showcase-slide { grid-template-columns: 1fr; }
+    .showcase-icon { min-height: 180px; font-size: 4.5rem; }
+    .showcase-info { padding: 28px 28px 36px; }
+    .showcase-title { font-size: 1.5rem; }
+    .hero-right { min-height: 420px; }
+    .hero-left { padding: 52px 24px 36px; }
+  }
+
+  /* ── ROTATING SHOWCASE ── */
+  .showcase-wrap {
+    position: relative; z-index: 2;
+    height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    padding: 48px 40px 64px;
+  }
+
+  .showcase-track {
+    width: 100%; max-width: 900px;
+    position: relative; min-height: 280px;
+  }
+
+  .showcase-slide {
+    position: absolute; inset: 0;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    background: rgba(255,255,255,0.13);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 14px;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+    pointer-events: none;
+  }
+
+  .showcase-slide.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    position: relative;
+  }
+
+  .showcase-icon {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6.5rem;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    min-height: 260px;
+  }
+
+  .showcase-icon::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to right, transparent 60%, rgba(0,0,0,0.1) 100%);
+  }
+
+  .showcase-info {
+    padding: 40px 44px;
+    background: var(--cream);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+
+  .showcase-tag {
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--cyan);
+    display: block; margin-bottom: 10px;
+  }
+
+  .showcase-title {
+    font-family: 'Fraunces', serif; font-weight: 700;
+    font-size: 2rem; color: var(--black);
+    margin-bottom: 12px; line-height: 1.15;
+  }
+
+  .showcase-desc {
+    font-size: 1rem; line-height: 1.65;
+    color: var(--mid-gray);
+    max-width: 480px;
+  }
+
+  .showcase-dots {
+    position: absolute; bottom: -36px; left: 50%;
+    transform: translateX(-50%);
+    display: flex; gap: 7px;
+  }
+
+  .showcase-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: rgba(255,255,255,0.4);
+    cursor: pointer; transition: 0.25s;
+    border: none; padding: 0;
+  }
+
+  .showcase-dot.active {
+    background: #fff; width: 24px; border-radius: 4px;
+  }
+
+  .showcase-arrow {
+    position: absolute; top: 50%;
+    transform: translateY(-50%);
+    width: 42px; height: 42px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: #fff; font-size: 1.1rem;
+    border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+    z-index: 5;
+  }
+
+  .showcase-arrow:hover { background: var(--orange-bright); }
+  .showcase-arrow.left { left: -22px; }
+  .showcase-arrow.right { right: -22px; }
+
+  @keyframes floatShowcase {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-6px) scale(1); }
+  }
+
+  .showcase-slide.active { animation: floatShowcase 5s ease-in-out infinite; }
+
+
+  .success-msg {
+    display: none;
+    background: #1a4d2e; color: #a8f0c4;
+    padding: 12px 16px; border-radius: 2px;
+    font-size: 0.85rem; margin-top: 12px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <span class="close-nav" onclick="toggleNav()">✕</span>
+  <a href="#hero" onclick="toggleNav()">Inicio</a>
+  <a href="#vendors" onclick="toggleNav()">Vendors</a>
+  <a href="#events" onclick="toggleNav()">Grand Opening</a>
+  <a href="#leasing" onclick="toggleNav()">Waitlist</a>
+  <a href="#newsletter" onclick="toggleNav()">Stay Updated</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Plaza <span>Latina</span></a>
+  <ul class="nav-links">
+    <li><a href="#vendors">Directory</a></li>
+    <li><a href="#events">Grand Opening</a></li>
+    <li><a href="#leasing">Waitlist</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="#leasing" class="nav-cta">Join Waitlist</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-tag">Dallas, TX · Thu & Mon 11AM–8PM · Fri–Sun 10AM–8PM · Grand Opening July 1</p>
+    <h1 class="hero-title">Where<br><em>Culture</em><br>Lives</h1>
+    <p class="hero-body">Plaza Latina is the heart of the community — a vibrant destination for Latino families, emerging creators, and the next generation of culture-makers.</p>
+    <div class="hero-actions">
+      <a href="#vendors" class="btn-primary">Explore Vendors</a>
+      <a href="#events" class="btn-outline">See Events</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-pattern"></div>
+    <div class="hero-visual-text" id="heroVisualText">PLAZA</div>
+    <div class="showcase-wrap">
+      <div class="showcase-track" id="showcaseTrack">
+        <div class="showcase-slide active">
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#E87820,#BF4E08)">🌮</div>
+          <div class="showcase-info">
+            <span class="showcase-tag">Food &amp; Drink</span>
+            <p class="showcase-title">Authentic Flavors</p>
+            <p class="showcase-desc">Tacos, aguas frescas, elotes, birria — handmade recipes straight from the family kitchen.</p>
+          </div>
+        </div>
+        <div class="showcase-slide">
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#17C8E0,#0B8FA0)">👟</div>
+          <div class="showcase-info">
+            <span class="showcase-tag">Fashion</span>
+            <p class="showcase-title">Fresh Fits &amp; Styles</p>
+            <p class="showcase-desc">Streetwear, sneakers, and boutique looks curated for the culture. New drops every week.</p>
+          </div>
+        </div>
+        <div class="showcase-slide">
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#F7C94A,#D4A017)">💎</div>
+          <div class="showcase-info">
+            <span class="showcase-tag">Jewelry</span>
+            <p class="showcase-title">Handcrafted Gold &amp; Silver</p>
+            <p class="showcase-desc">Custom engravings, quinceañera sets, and artisan pieces for every occasion.</p>
+          </div>
+        </div>
+        <div class="showcase-slide">
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#E87820,#BF4E08)">🎺</div>
+          <div class="showcase-info">
+            <span class="showcase-tag">Events</span>
+            <p class="showcase-title">Live Music &amp; Cultura</p>
+            <p class="showcase-desc">Mariachi, reggaeton, cumbia, DJ sets — something live every weekend at the plaza.</p>
+          </div>
+        </div>
+        <div class="showcase-slide">
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#17C8E0,#0B8FA0)">💅</div>
+          <div class="showcase-info">
+            <span class="showcase-tag">Beauty</span>
+            <p class="showcase-title">Full Glam Services</p>
+            <p class="showcase-desc">Lashes, nails, hair, and makeup — walk in and walk out looking your best.</p>
+          </div>
+        </div>
+        <div class="showcase-slide">
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#F2855A,#C95B10)">📱</div>
+          <div class="showcase-info">
+            <span class="showcase-tag">Electronics</span>
+            <p class="showcase-title">Tech &amp; Accessories</p>
+            <p class="showcase-desc">Phone repairs, gadgets, cables, and cases. Fast service and familia-owned.</p>
+          </div>
+        </div>
+        <div class="showcase-slide">
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#F7C94A,#D4A017)">🎨</div>
+          <div class="showcase-info">
+            <span class="showcase-tag">Art &amp; Gifts</span>
+            <p class="showcase-title">Local Artists &amp; Makers</p>
+            <p class="showcase-desc">Original prints, candles, ceramics, and handcrafted gifts from Dallas Latino artists.</p>
+          </div>
+        </div>
+        <div class="showcase-slide">
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#E87820,#BF4E08)">✂️</div>
+          <div class="showcase-info">
+            <span class="showcase-tag">Services</span>
+            <p class="showcase-title">Barbershop &amp; More</p>
+            <p class="showcase-desc">Precision fades, lineups, and styles. Walk-ins welcome — kings treated right.</p>
+          </div>
+        </div>
+      </div>
+      <div class="showcase-dots" id="showcaseDots"></div>
+      <button class="showcase-arrow left" onclick="shiftSlide(-1)">&#8592;</button>
+      <button class="showcase-arrow right" onclick="shiftSlide(1)">&#8594;</button>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BAR -->
+<div class="info-bar">
+  <div class="info-item">
+    <span class="info-icon">📍</span>
+    <div>
+      <p class="info-label">Location</p>
+      <p class="info-value">Dallas, Texas</p>
+    </div>
+  </div>
+  <div class="info-item">
+    <span class="info-icon">🕐</span>
+    <div>
+      <p class="info-label">Hours</p>
+      <p class="info-value">Thu & Mon 11AM–8PM · Fri–Sun 10AM–8PM</p>
+    </div>
+  </div>
+  <div class="info-item">
+    <span class="info-icon">🏪</span>
+    <div>
+      <p class="info-label">Vendors</p>
+      <p class="info-value">150+ Local Family-Owned Businesses</p>
+    </div>
+  </div>
+  <div class="info-item">
+    <span class="info-icon">🅿️</span>
+    <div>
+      <p class="info-label">Parking</p>
+      <p class="info-value">Free Parking · Accessible</p>
+    </div>
+  </div>
+</div>
+
+<!-- VENDORS -->
+<section id="vendors">
+  <div class="section-header">
+    <p class="section-tag">Vendor Directory</p>
+    <h2 class="section-title">Find Your<br><em>Favorites</em></h2>
+  </div>
+  <div class="vendor-filters">
+    <button class="filter-btn active" onclick="filterVendors('all', this)">All</button>
+    <button class="filter-btn" onclick="filterVendors('food', this)">Food & Drink</button>
+    <button class="filter-btn" onclick="filterVendors('fashion', this)">Fashion</button>
+    <button class="filter-btn" onclick="filterVendors('beauty', this)">Beauty</button>
+    <button class="filter-btn" onclick="filterVendors('jewelry', this)">Jewelry</button>
+    <button class="filter-btn" onclick="filterVendors('electronics', this)">Electronics</button>
+    <button class="filter-btn" onclick="filterVendors('art', this)">Art & Gifts</button>
+    <button class="filter-btn" onclick="filterVendors('services', this)">Services</button>
+  </div>
+  <div class="vendors-grid" id="vendorsGrid">
+    <div class="vendor-card" data-cat="food">
+      <span class="vendor-emoji">🌮</span>
+      <p class="vendor-name">Tacos La Familia</p>
+      <p class="vendor-cat">Food & Drink</p>
+      <p class="vendor-desc">Handmade tortillas, birria, pastor, and all the classics. A taste of home in every bite.</p>
+    </div>
+    <div class="vendor-card" data-cat="fashion">
+      <span class="vendor-emoji">👟</span>
+      <p class="vendor-name">Cultura Kicks</p>
+      <p class="vendor-cat">Fashion</p>
+      <p class="vendor-desc">Streetwear and sneakers curated for the culture. Limited drops, exclusive collabs.</p>
+    </div>
+    <div class="vendor-card" data-cat="beauty">
+      <span class="vendor-emoji">💅</span>
+      <p class="vendor-name">Glam by Nadia</p>
+      <p class="vendor-cat">Beauty</p>
+      <p class="vendor-desc">Lashes, nails, and full glam. Walk in fierce, walk out more fierce.</p>
+    </div>
+    <div class="vendor-card" data-cat="food">
+      <span class="vendor-emoji">🥤</span>
+      <p class="vendor-name">Aguas Frescas Bar</p>
+      <p class="vendor-cat">Food & Drink</p>
+      <p class="vendor-desc">Seasonal aguas frescas, elotes, chamoyadas, and paletas made fresh daily.</p>
+    </div>
+    <div class="vendor-card" data-cat="art">
+      <span class="vendor-emoji">🎨</span>
+      <p class="vendor-name">Arte y Alma</p>
+      <p class="vendor-cat">Art & Gifts</p>
+      <p class="vendor-desc">Original prints, candles, and handcrafted goods from local Latino artists.</p>
+    </div>
+    <div class="vendor-card" data-cat="services">
+      <span class="vendor-emoji">✂️</span>
+      <p class="vendor-name">Kings Barbershop</p>
+      <p class="vendor-cat">Services</p>
+      <p class="vendor-desc">Precision fades, lineups, and styles. Walk-ins welcome, appointments preferred.</p>
+    </div>
+    <div class="vendor-card" data-cat="fashion">
+      <span class="vendor-emoji">👗</span>
+      <p class="vendor-name">La Boutique</p>
+      <p class="vendor-cat">Fashion</p>
+      <p class="vendor-desc">Trendy fits for women. From casual everyday to quince-ready looks.</p>
+    </div>
+    <div class="vendor-card" data-cat="art">
+      <span class="vendor-emoji">📸</span>
+      <p class="vendor-name">Foto Estudio Reyes</p>
+      <p class="vendor-cat">Art & Gifts</p>
+      <p class="vendor-desc">Professional photos, custom prints, and ID services. Family packages available.</p>
+    </div>
+    <div class="vendor-card" data-cat="jewelry">
+      <span class="vendor-emoji">💎</span>
+      <p class="vendor-name">Joyería Dorada</p>
+      <p class="vendor-cat">Jewelry</p>
+      <p class="vendor-desc">Handcrafted gold and silver pieces, custom engravings, and quinceañera sets. Elegance for every occasion.</p>
+    </div>
+    <div class="vendor-card" data-cat="electronics">
+      <span class="vendor-emoji">📱</span>
+      <p class="vendor-name">TechBarrio</p>
+      <p class="vendor-cat">Electronics & Accessories</p>
+      <p class="vendor-desc">Phone repairs, accessories, cables, cases, and the latest gadgets. Fast service, fair prices, familia-owned.</p>
+    </div>
+  </div>
+</section>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="section-header">
+      <p class="section-tag" style="color:rgba(245,240,232,0.6);">What's On</p>
+      <h2 class="section-title">Upcoming <em>Events</em></h2>
+    </div>
+
+    <!-- GRAND OPENING HERO CARD -->
+    <div class="grand-opening-card">
+      <div class="go-left">
+        <div class="go-countdown-label">Grand Opening In</div>
+        <div class="go-countdown" id="goCountdown">
+          <div class="go-unit"><span id="cdDays">--</span><small>Days</small></div>
+          <div class="go-sep">:</div>
+          <div class="go-unit"><span id="cdHours">--</span><small>Hours</small></div>
+          <div class="go-sep">:</div>
+          <div class="go-unit"><span id="cdMins">--</span><small>Mins</small></div>
+        </div>
+        <div class="go-date-badge">July 1, 2026</div>
+        <h3 class="go-title">Grand Opening<br><em>Celebration</em></h3>
+        <p class="go-desc">The wait is over. Plaza Latina opens its doors for the first time — and we're celebrating in true familia style. Join us for a full day of food, music, community, and unforgettable moments.</p>
+        <a href="#newsletter" class="btn-primary" style="margin-top:8px;">RSVP — It's Free</a>
+      </div>
+      <div class="go-right">
+        <div class="go-highlights-title">Featured at the Grand Opening</div>
+        <div class="go-highlights">
+          <div class="go-highlight">
+            <div class="go-h-icon">🎺</div>
+            <div>
+              <p class="go-h-name">Live Mariachi</p>
+              <p class="go-h-desc">Traditional mariachi performing live all evening — the sound of celebration, front and center.</p>
+            </div>
+          </div>
+          <div class="go-highlight">
+            <div class="go-h-icon">🎧</div>
+            <div>
+              <p class="go-h-name">DJ Set</p>
+              <p class="go-h-desc">Reggaeton, cumbia, and throwbacks keeping the energy alive from open to close.</p>
+            </div>
+          </div>
+          <div class="go-highlight">
+            <div class="go-h-icon">🎟️</div>
+            <div>
+              <p class="go-h-name">Prizes & Raffles</p>
+              <p class="go-h-desc">Big giveaways, vendor gift cards, and surprise prizes throughout the day. Must be present to win.</p>
+            </div>
+          </div>
+          <div class="go-highlight">
+            <div class="go-h-icon">🍽️</div>
+            <div>
+              <p class="go-h-name">Food & Drinks</p>
+              <p class="go-h-desc">All 150+ vendors open and ready. Samples, specials, and grand opening deals all day long.</p>
+            </div>
+          </div>
+        </div>
+        <div class="go-details-row">
+          <div class="go-detail"><strong>July 1, 2026</strong><span>Date</span></div>
+          <div class="go-detail"><strong>10 AM – 10 PM</strong><span>Hours</span></div>
+          <div class="go-detail"><strong>Free Entry</strong><span>Admission</span></div>
+          <div class="go-detail"><strong>All Ages</strong><span>Who's Invited</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WAITLIST -->
+<section id="leasing">
+  <div>
+    <div class="section-header" style="margin-bottom:28px;">
+      <p class="section-tag">For Businesses</p>
+      <h2 class="section-title">Join the<br><em>Waitlist</em></h2>
+    </div>
+    <p class="leasing-body">Plaza Latina is one of Dallas's most sought-after retail communities. With 150+ family-owned businesses and a fiercely loyal customer base, space here doesn't come easy — and that's by design.</p>
+    <div class="waitlist-badge">
+      <div class="wb-icon">⏳</div>
+      <div>
+        <div class="wb-headline">Current Wait: 2–3 Years</div>
+        <div class="wb-sub">Spaces rarely open. When they do, waitlist members get first access — no exceptions.</div>
+      </div>
+    </div>
+    <div class="leasing-stats">
+      <div class="stat-box">
+        <div class="stat-num">150+</div>
+        <div class="stat-label">Family-Owned Vendors</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Days a Week</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">2–3yr</div>
+        <div class="stat-label">Avg. Wait Time</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Community First</div>
+      </div>
+    </div>
+    <div class="waitlist-perks">
+      <div class="wp-item">✓ First access when spaces open</div>
+      <div class="wp-item">✓ Priority review for your application</div>
+      <div class="wp-item">✓ Updates on Plaza expansion plans</div>
+    </div>
+  </div>
+  <div class="leasing-form-side">
+    <div class="leasing-form">
+      <div class="waitlist-form-badge">🔒 Waitlist — Limited Spots</div>
+      <h3 class="form-title">Get on the List</h3>
+      <p class="form-sub">Space at Plaza Latina is rare. Submit your interest now and we'll contact you when a spot becomes available.</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" placeholder="Maria">
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" placeholder="Garcia">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Business Name</label>
+        <input type="text" placeholder="Your Business">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="you@example.com">
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="tel" placeholder="(214) 000-0000">
+      </div>
+      <div class="form-group">
+        <label>Business Type</label>
+        <select>
+          <option>Select category…</option>
+          <option>Food & Drink</option>
+          <option>Fashion & Apparel</option>
+          <option>Beauty & Wellness</option>
+          <option>Art & Gifts</option>
+          <option>Services</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tell us about your business</label>
+        <textarea placeholder="Brief description, products/services, years in business…"></textarea>
+      </div>
+      <button class="btn-form" onclick="submitLease(event)">Join the Waitlist</button>
+      <p style="font-size:0.72rem;color:var(--mid-gray);margin-top:10px;text-align:center;">Adding your name does not guarantee placement. We'll be in touch.</p>
+      <div class="success-msg" id="leaseSuccess">✓ You're on the list! We'll reach out when a space opens up.</div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section id="newsletter">
+  <div class="newsletter-inner">
+    <p class="section-tag" style="justify-content:center;margin-bottom:16px;">Stay Connected</p>
+    <h2 class="newsletter-title">Never Miss<br>a Moment</h2>
+    <p class="newsletter-sub">Events, vendor spotlights, deals, and community news — delivered straight to your inbox. En español también.</p>
+    <div class="newsletter-form">
+      <input type="email" class="newsletter-input" id="newsletterEmail" placeholder="your@email.com">
+      <button class="newsletter-btn" onclick="submitNewsletter()">Subscribe</button>
+    </div>
+    <div class="success-msg" id="newsSuccess" style="display:none;max-width:480px;margin:12px auto 0;">✓ You're on the list! Welcome to Plaza Latina.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Plaza <span>Latina</span></div>
+      <p class="footer-tagline">Where Culture Lives</p>
+      <div class="footer-social">
+        <a class="social-btn" href="#" title="Instagram">📷</a>
+        <a class="social-btn" href="#" title="TikTok">🎵</a>
+        <a class="social-btn" href="#" title="Facebook">👥</a>
+        <a class="social-btn" href="#" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div>
+      <p class="footer-col-title">Visit</p>
+      <ul class="footer-links">
+        <li><a href="#vendors">Vendor Directory</a></li>
+        <li><a href="#events">Events Calendar</a></li>
+        <li><a href="#">Hours & Location</a></li>
+        <li><a href="#">Parking Info</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Business</p>
+      <ul class="footer-links">
+        <li><a href="#leasing">Join the Waitlist</a></li>
+        <li><a href="#leasing">Vendor Application</a></li>
+        <li><a href="#">Advertise With Us</a></li>
+        <li><a href="#">Partner Programs</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Connect</p>
+      <ul class="footer-links">
+        <li><a href="#newsletter">Newsletter</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">Press & Media</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Plaza Latina. Dallas, TX. All rights reserved.</p>
+    <p class="footer-copy">Privacy Policy · Terms of Use</p>
+  </div>
+</footer>
+
+<script>
+  // ── Rotating showcase ──
+  const slides = document.querySelectorAll('.showcase-slide');
+  const dotsContainer = document.getElementById('showcaseDots');
+  const bgWords = ['FOOD','MODA','MÚSICA','ARTE','BELLEZA','TECH','JOYAS','PLAZA'];
+  const heroText = document.getElementById('heroVisualText');
+  let current = 0;
+  let showcaseTimer;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'showcase-dot' + (i === 0 ? ' active' : '');
+    d.onclick = () => goToSlide(i);
+    dotsContainer.appendChild(d);
+  });
+
+  function goToSlide(n) {
+    slides[current].classList.remove('active');
+    dotsContainer.children[current].classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dotsContainer.children[current].classList.add('active');
+    if (heroText) heroText.textContent = bgWords[current] || 'PLAZA';
+    clearInterval(showcaseTimer);
+    showcaseTimer = setInterval(() => goToSlide(current + 1), 3500);
+  }
+
+  function shiftSlide(dir) { goToSlide(current + dir); }
+
+  showcaseTimer = setInterval(() => goToSlide(current + 1), 3500);
+
+  // ── Mobile nav ──
+  function toggleNav() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+
+  // ── Vendor filter ──
+  function filterVendors(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.vendor-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+
+  // ── Countdown to July 1, 2026 ──
+  function updateCountdown() {
+    const target = new Date('2026-07-01T10:00:00');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cdDays').textContent = '00';
+      document.getElementById('cdHours').textContent = '00';
+      document.getElementById('cdMins').textContent = '00';
+      return;
+    }
+    document.getElementById('cdDays').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
+    document.getElementById('cdHours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+    document.getElementById('cdMins').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+
+  // ── Forms ──
+  function submitLease(e) {
+    e.preventDefault();
+    const msg = document.getElementById('leaseSuccess');
+    msg.style.display = 'block';
+    setTimeout(() => msg.style.display = 'none', 5000);
+  }
+
+  function submitNewsletter() {
+    const email = document.getElementById('newsletterEmail').value;
+    if (!email || !email.includes('@')) { alert('Please enter a valid email.'); return; }
+    document.getElementById('newsSuccess').style.display = 'block';
+    document.getElementById('newsletterEmail').value = '';
+  }
+</script>
+</body>
+</html>
