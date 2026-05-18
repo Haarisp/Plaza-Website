@@ -9,22 +9,27 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #FEF5E7;
-    --black: #2A1200;
-    --red: #D95E0A;
-    --gold: #F7C94A;
-    --warm-white: #FFFAF3;
-    --mid-gray: #A0622A;
-    --border: rgba(210,90,20,0.18);
-    --cyan: #17C8E0;
-    --brown-deep: #C95B10;
-    --brown-mid: #E0752A;
-    --brown-light: #F0A868;
-    --stucco: #F2855A;
-    --stucco-light: #FAC9A8;
-    --stucco-pale: #FEF0E4;
-    --orange-bright: #E87820;
-    --orange-deep: #BF4E08;
+    /* Base */
+    --cream: #FDF4E3;         /* warm parchment background */
+    --warm-white: #FDF4E3;
+    --black: #1A1A1A;         /* near-black for text */
+
+    /* Primary accents */
+    --red: #B7410E;           /* burnt sienna / terracotta */
+    --orange-bright: #BF6415; /* warm amber */
+    --orange-deep: #B7410E;
+    --gold: #F3BA20;          /* marigold yellow */
+    --cyan: #00C5CD;          /* teal / agua */
+
+    /* Supporting */
+    --stucco: #BF6415;
+    --stucco-light: #F3BA20;
+    --stucco-pale: #FDF4E3;
+    --brown-deep: #1A1A2E;    /* deep midnight — grounds the warm palette */
+    --brown-mid: #B7410E;
+    --brown-light: #FEB21A;   /* bright golden yellow */
+    --mid-gray: #7A4A1E;      /* warm dark brown for body text */
+    --border: rgba(183,65,14,0.15);
   }
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -109,46 +114,111 @@
     display: flex; flex-direction: column;
     justify-content: center; align-items: center;
     text-align: center;
-    padding: 72px 40px 52px;
+    padding: 60px 40px 48px;
     position: relative;
     background: var(--cream);
+    overflow: hidden;
+    gap: 0;
   }
 
+  /* Ghost watermark — layered aesthetic */
+  .hero-bg-logo {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(8rem, 22vw, 24rem);
+    line-height: 0.82;
+    letter-spacing: 0.05em;
+    text-align: center;
+    white-space: nowrap;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    color: rgba(183,65,14,0.045);
+    -webkit-text-stroke: 1px rgba(0,197,205,0.18);
+    text-shadow:
+      4px 4px 0px rgba(183,65,14,0.04),
+      -2px -2px 0px rgba(0,197,205,0.06),
+      0 0 80px rgba(243,186,32,0.08);
+    filter: blur(0.4px);
+  }
+
+  .hero-left > *:not(.hero-bg-logo) { position: relative; z-index: 1; }
+
   .hero-tag {
-    font-size: 0.75rem; font-weight: 400; letter-spacing: 0.18em;
+    font-size: 0.72rem; font-weight: 400; letter-spacing: 0.16em;
     text-transform: uppercase; color: var(--mid-gray);
-    margin-bottom: 24px;
+    margin-bottom: 8px;
     display: inline-block;
   }
 
-  .hero-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(6rem, 14vw, 14rem);
-    line-height: 0.88;
-    letter-spacing: 0.03em;
-    margin-bottom: 12px;
+  .hero-grand-opening {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--gold);
+    padding: 5px 16px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 24px;
   }
 
-  .hero-title em {
-    font-family: 'Bebas Neue', sans-serif;
-    font-style: normal;
+  /* All three words: full italic Fraunces, same size — Culture in red via span */
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(4rem, 9vw, 9rem);
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+    margin: 0;
+    position: relative; z-index: 2;
+    color: var(--black);
+  }
+
+  .hero-title .culture {
     color: var(--red);
   }
 
-  .hero-subtitle {
+  .hero-title em {
     font-family: 'Fraunces', serif;
     font-style: italic;
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-weight: 700;
+    color: var(--red);
+    font-size: inherit;
+    display: inline;
+  }
+
+  /* "Plaza Latina" label */
+  .hero-subtitle {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-size: clamp(0.7rem, 1.2vw, 0.9rem);
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
     color: var(--mid-gray);
+    margin-top: 20px;
     margin-bottom: 28px;
-    letter-spacing: 0.02em;
+    position: relative; z-index: 3;
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+
+  .hero-subtitle::before,
+  .hero-subtitle::after {
+    content: '';
+    display: block;
+    width: 40px; height: 1px;
+    background: var(--orange-bright);
+    opacity: 0.6;
   }
 
   .hero-body {
-    font-size: 1.08rem; line-height: 1.65;
+    font-size: 1rem; line-height: 1.65;
     color: var(--mid-gray);
-    max-width: 600px;
-    margin-bottom: 40px;
+    max-width: 560px;
+    margin-bottom: 36px;
   }
 
   .hero-actions {
@@ -189,8 +259,8 @@
     content: '';
     position: absolute; inset: 0;
     background:
-      radial-gradient(ellipse at 30% 60%, rgba(255,160,60,0.55) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(23,200,224,0.3) 0%, transparent 50%);
+      radial-gradient(ellipse at 30% 60%, rgba(183,65,14,0.5) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(0,197,205,0.3) 0%, transparent 50%);
     z-index: 1;
   }
 
@@ -247,9 +317,9 @@
     font-size: 4rem;
   }
 
-  .card-bg-1 { background: linear-gradient(135deg, #E87820, #BF4E08); }
-  .card-bg-2 { background: linear-gradient(135deg, #17C8E0, #0B8FA0); }
-  .card-bg-3 { background: linear-gradient(135deg, #F2855A, #C95B10); }
+  .card-bg-1 { background: linear-gradient(135deg, #BF6415, #B7410E); }
+  .card-bg-2 { background: linear-gradient(135deg, #00C5CD, #007A82); }
+  .card-bg-3 { background: linear-gradient(135deg, #BF6415, #B7410E); }
 
   .hero-card-body { padding: 18px; }
   .hero-card-label { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
@@ -257,7 +327,7 @@
 
   /* ── INFO BAR ── */
   .info-bar {
-    background: var(--cyan);
+    background: linear-gradient(to bottom, #FDF4E3 0%, #00C5CD 12%);
     color: #fff;
     display: flex; align-items: stretch;
     overflow: hidden;
@@ -313,7 +383,15 @@
   }
 
   /* ── VENDORS ── */
-  #vendors { background: var(--stucco-pale); }
+  #vendors {
+    background: linear-gradient(
+      to bottom,
+      #00C5CD 0%,
+      #FDF4E3 8%,
+      #FDF4E3 92%,
+      #B7410E 100%
+    );
+  }
 
   .vendor-filters {
     display: flex; gap: 10px; flex-wrap: wrap;
@@ -368,7 +446,17 @@
   .vendor-cat { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cyan); margin-bottom: 10px; }
   .vendor-desc { font-size: 0.87rem; line-height: 1.5; color: var(--mid-gray); }
 
-  #events { background: linear-gradient(175deg, #0BBCD4 0%, #E87820 28%, #BF4E08 100%); color: #fff; }
+  #events {
+    background: linear-gradient(
+      to bottom,
+      #B7410E 0%,
+      #00C5CD 18%,
+      #BF6415 55%,
+      #B7410E 82%,
+      #134686 100%
+    );
+    color: #fff;
+  }
   #events .section-title { color: #fff; }
 
   .events-layout {
@@ -447,7 +535,13 @@
 
   /* ── LEASING ── */
   #leasing {
-    background: #0E6B7C;
+    background: linear-gradient(
+      to bottom,
+      #134686 0%,
+      #0E3A6E 40%,
+      #0E3A6E 60%,
+      #FEB21A 100%
+    );
     color: var(--cream);
     display: grid;
     grid-template-columns: 1.2fr 1fr;
@@ -549,7 +643,13 @@
 
   /* ── NEWSLETTER ── */
   #newsletter {
-    background: var(--gold);
+    background: linear-gradient(
+      to bottom,
+      #FEB21A 0%,
+      #F3BA20 40%,
+      #F3BA20 60%,
+      #1A1A2E 100%
+    );
     text-align: center;
     padding: 100px 40px;
   }
@@ -597,7 +697,7 @@
 
   /* ── FOOTER ── */
   footer {
-    background: #0A4A55; color: var(--cream);
+    background: #1A1A2E; color: var(--cream);
     padding: 80px 40px 40px;
   }
 
@@ -662,7 +762,7 @@
   .mobile-nav {
     display: none;
     position: fixed; inset: 0; z-index: 99;
-    background: #0A4A55; color: var(--cream);
+    background: #1A1A2E; color: var(--cream);
     flex-direction: column; align-items: center; justify-content: center;
     gap: 32px;
   }
@@ -742,7 +842,7 @@
   }
 
   .go-left {
-    background: linear-gradient(160deg, #BF4E08 0%, #7A2800 100%);
+    background: linear-gradient(160deg, #B7410E 0%, #7A2800 100%);
     padding: 52px 44px;
     display: flex; flex-direction: column; align-items: flex-start;
     position: relative; overflow: hidden;
@@ -1087,9 +1187,11 @@
 <!-- HERO -->
 <section id="hero">
   <div class="hero-left">
-    <p class="hero-tag">Dallas, TX · Thu & Mon 11AM–8PM · Fri–Sun 10AM–8PM · Grand Opening July 1</p>
-    <h1 class="hero-title">Plaza <em>Latina</em></h1>
-    <p class="hero-subtitle">Where Culture Lives</p>
+    <div class="hero-bg-logo">Plaza<br>Latina</div>
+    <p class="hero-tag">Dallas, TX · Thu & Mon 11AM–8PM · Fri–Sun 10AM–8PM</p>
+    <p class="hero-grand-opening">🎉 Grand Opening — July 2</p>
+    <h1 class="hero-title">Where <span class="culture">Culture</span> Lives</h1>
+    <p class="hero-subtitle">Plaza Latina</p>
     <p class="hero-body">The heart of the community — a vibrant destination for Latino families, emerging creators, and the next generation of culture-makers.</p>
     <div class="hero-actions">
       <a href="#vendors" class="btn-primary">Explore Vendors</a>
@@ -1102,7 +1204,7 @@
     <div class="showcase-wrap">
       <div class="showcase-track" id="showcaseTrack">
         <div class="showcase-slide active">
-          <div class="showcase-icon" style="background:linear-gradient(135deg,#E87820,#BF4E08)">🌮</div>
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#BF6415,#B7410E)">🌮</div>
           <div class="showcase-info">
             <span class="showcase-tag">Food &amp; Drink</span>
             <p class="showcase-title">Authentic Flavors</p>
@@ -1110,7 +1212,7 @@
           </div>
         </div>
         <div class="showcase-slide">
-          <div class="showcase-icon" style="background:linear-gradient(135deg,#17C8E0,#0B8FA0)">👟</div>
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#00C5CD,#007A82)">👟</div>
           <div class="showcase-info">
             <span class="showcase-tag">Fashion</span>
             <p class="showcase-title">Fresh Fits &amp; Styles</p>
@@ -1118,7 +1220,7 @@
           </div>
         </div>
         <div class="showcase-slide">
-          <div class="showcase-icon" style="background:linear-gradient(135deg,#F7C94A,#D4A017)">💎</div>
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#F3BA20,#D4940A)">💎</div>
           <div class="showcase-info">
             <span class="showcase-tag">Jewelry</span>
             <p class="showcase-title">Handcrafted Gold &amp; Silver</p>
@@ -1126,7 +1228,7 @@
           </div>
         </div>
         <div class="showcase-slide">
-          <div class="showcase-icon" style="background:linear-gradient(135deg,#E87820,#BF4E08)">🎺</div>
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#BF6415,#B7410E)">🎺</div>
           <div class="showcase-info">
             <span class="showcase-tag">Events</span>
             <p class="showcase-title">Live Music &amp; Cultura</p>
@@ -1134,7 +1236,7 @@
           </div>
         </div>
         <div class="showcase-slide">
-          <div class="showcase-icon" style="background:linear-gradient(135deg,#17C8E0,#0B8FA0)">💅</div>
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#00C5CD,#007A82)">💅</div>
           <div class="showcase-info">
             <span class="showcase-tag">Beauty</span>
             <p class="showcase-title">Full Glam Services</p>
@@ -1142,7 +1244,7 @@
           </div>
         </div>
         <div class="showcase-slide">
-          <div class="showcase-icon" style="background:linear-gradient(135deg,#F2855A,#C95B10)">📱</div>
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#BF6415,#B7410E)">📱</div>
           <div class="showcase-info">
             <span class="showcase-tag">Electronics</span>
             <p class="showcase-title">Tech &amp; Accessories</p>
@@ -1150,7 +1252,7 @@
           </div>
         </div>
         <div class="showcase-slide">
-          <div class="showcase-icon" style="background:linear-gradient(135deg,#F7C94A,#D4A017)">🎨</div>
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#F3BA20,#D4940A)">🎨</div>
           <div class="showcase-info">
             <span class="showcase-tag">Art &amp; Gifts</span>
             <p class="showcase-title">Local Artists &amp; Makers</p>
@@ -1158,7 +1260,7 @@
           </div>
         </div>
         <div class="showcase-slide">
-          <div class="showcase-icon" style="background:linear-gradient(135deg,#E87820,#BF4E08)">✂️</div>
+          <div class="showcase-icon" style="background:linear-gradient(135deg,#BF6415,#B7410E)">✂️</div>
           <div class="showcase-info">
             <span class="showcase-tag">Services</span>
             <p class="showcase-title">Barbershop &amp; More</p>
@@ -1264,12 +1366,7 @@
       <p class="vendor-cat">Fashion</p>
       <p class="vendor-desc">Trendy fits for women. From casual everyday to quince-ready looks.</p>
     </div>
-    <div class="vendor-card" data-cat="art">
-      <span class="vendor-emoji">📸</span>
-      <p class="vendor-name">Foto Estudio Reyes</p>
-      <p class="vendor-cat">Art & Gifts</p>
-      <p class="vendor-desc">Professional photos, custom prints, and ID services. Family packages available.</p>
-    </div>
+
     <div class="vendor-card" data-cat="jewelry">
       <span class="vendor-emoji">💎</span>
       <p class="vendor-name">Joyería Dorada</p>
@@ -1305,7 +1402,7 @@
           <div class="go-sep">:</div>
           <div class="go-unit"><span id="cdMins">--</span><small>Mins</small></div>
         </div>
-        <div class="go-date-badge">July 1, 2026</div>
+        <div class="go-date-badge">July 2, 2026</div>
         <h3 class="go-title">Grand Opening<br><em>Celebration</em></h3>
         <p class="go-desc">The wait is over. Plaza Latina opens its doors for the first time — and we're celebrating in true familia style. Join us for a full day of food, music, community, and unforgettable moments.</p>
         <a href="#newsletter" class="btn-primary" style="margin-top:8px;">RSVP — It's Free</a>
@@ -1343,7 +1440,7 @@
           </div>
         </div>
         <div class="go-details-row">
-          <div class="go-detail"><strong>July 1, 2026</strong><span>Date</span></div>
+          <div class="go-detail"><strong>July 2, 2026</strong><span>Date</span></div>
           <div class="go-detail"><strong>10 AM – 10 PM</strong><span>Hours</span></div>
           <div class="go-detail"><strong>Free Entry</strong><span>Admission</span></div>
           <div class="go-detail"><strong>All Ages</strong><span>Who's Invited</span></div>
@@ -1549,9 +1646,9 @@
     });
   }
 
-  // ── Countdown to July 1, 2026 ──
+  // ── Countdown to July 2, 2026 ──
   function updateCountdown() {
-    const target = new Date('2026-07-01T10:00:00');
+    const target = new Date('2026-07-02T10:00:00');
     const now = new Date();
     const diff = target - now;
     if (diff <= 0) {
